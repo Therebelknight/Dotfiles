@@ -23,27 +23,16 @@ export GCM_CREDENTIAL_CACHE_OPTIONS="--timeout 300"
 # or
 git config --global credential.cacheOptions "--timeout 300"
 
-#install zsh and configure it
-sudo pacman -S zsh wget
-cd ~
-wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh ~
-sh install.sh
-
-cd ~
-rm .zshrc .zprofile
-cp ~/asephan/.zshrc .
-cp ~/asephan/.zprofile .
-
 #install qtile and polybar
 cd ~
 sudo pacman -S qtile polybar
 #move config to here
-cp ~/asephan/qtile/config.py ~/.config/qtile/
+cp ~/dotfiles/qtile/config.py ~/.config/qtile/
 cd ~/.config/
 mkdir polybar
 cd polybar
 #move config  here
-cp ~/asephan/polybar/* .
+cp ~/dotfiles/polybar/* .
 
 
 #install neovim and kickstart
@@ -51,7 +40,7 @@ cd ~
 sudo pacman -S neovim ripgrep npm unzip
 git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 #move config here
-cp ~/asephan/init.lua ~/.config/nvim/init.lua
+cp ~/dotfiles/init.lua ~/.config/nvim/init.lua
 
 
 #install rust
@@ -67,7 +56,7 @@ cd ~
 sudo pacman -S kitty ttf-fantasque-nerd
 kitten themes
 #move conf files
-cp ~/asephan/kitty/* ~/.config/kitty/
+cp ~/dotfiles/kitty/* ~/.config/kitty/
 
 
 #miscallaneous
@@ -75,3 +64,14 @@ cd ~
 yay -S 1password
 sudo pacman -S firefox man thunderbird
 echo Remember to sign into these
+
+#install zsh and configure it
+sudo pacman -S zsh wget
+cd ~
+wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh ~
+sh install.sh
+
+cd ~
+rm .zshrc .zprofile
+cp ~/dotfiles/.zshrc .
+cp ~/dotfiles/.zprofile .
